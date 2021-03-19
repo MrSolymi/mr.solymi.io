@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="adatok.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table {
+            width: 100%;
+        }
+        h1{
+            text-align: center;
+        }
+        #gomb {
+            height: 150%;
+        }
+        body {
+            padding: 20px;
+        }
+        .elsooszlop{
+            color: black;
+            background-color: aqua;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Angol első osztályú labdarúgó-bajnokság</h1>
+    <table id="torzs">
+        <thead>
+            <tr>
+                <td>
+                    Helyezés
+                </td>
+                <td>
+                    Csapat
+                </td>
+                <td>
+                    Játszott Meccs
+                </td>
+                <td>
+                    Győzelmek
+                </td>
+                <td>
+                    Döntetlenek
+                </td>
+                <td>
+                    Vereségek
+                </td>
+                <td>
+                    Lőtt Gólok
+                </td>
+                <td>
+                    Kapott Gólok
+                </td>
+                <td>
+                    Gól Különbség
+                </td>
+                <td>
+                    Pontok
+                </td>
+            </tr>
+        </thead>
+    </table>
+
+
+    <script>
+        var ezvagyaz = true;
+        function gomb1() 
+        {
+            if (ezvagyaz)
+            {
+                document.getElementById("torzs").style.color = "red";
+                document.getElementById("torzs").style.fontWeight = "bold";
+            }else
+            {
+                document.getElementById("torzs").style.color = "black";
+                document.getElementById("torzs").style.fontWeight = "normal";
+            }
+            ezvagyaz = !ezvagyaz;
+        }
+
+
+        var table = document.getElementById("torzs");
+        document.body.appendChild(table);
+        table.setAttribute("class", "table");
+
+        var torzs = document.getElementById("torzs");
+        for (elem of adatok)
+        {
+
+            var tr = document.createElement("tr");
+            torzs.appendChild(tr);
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = elem.rank;
+            td.setAttribute("class", "elsooszlop");
+            
+
+            var tr2 = document.createElement("tr");
+            torzs.appendChild(tr2);
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = elem.team;
+            td.setAttribute("class", "masodik_oszlop");
+
+            var tr3 = document.createElement("tr");
+            torzs.appendChild(tr3);
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = elem.played;
+            td.setAttribute("class", "harmadik_oszlop");
+
+            var tr4 = document.createElement("tr");
+            torzs.appendChild(tr4);
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = elem.wins;
+            td.setAttribute("class", "negyedik_oszlop");
+
+            var tr5 = document.createElement("tr");
+            torzs.appendChild(tr5);
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = elem.draws;
+            td.setAttribute("class", "ötödik_oszlop");
+
+            var tr6 = document.createElement("tr");
+            torzs.appendChild(tr6);
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = elem.losses;
+            td.setAttribute("class", "hatodik_oszlop");
+
+            var tr7 = document.createElement("tr");
+            torzs.appendChild(tr7);
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = elem.goalsfor;
+            td.setAttribute("class", "hetedik_oszlop");
+
+            var tr8 = document.createElement("tr");
+            torzs.appendChild(tr8);
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = elem.goalsagainst;
+            td.setAttribute("class", "nyolcadik_oszlop");
+
+            var tr9 = document.createElement("tr");
+            torzs.appendChild(tr9);
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = elem.goalsdiff;
+            td.setAttribute("class", "kilencedik_oszlop");
+
+            var tr10 = document.createElement("tr");
+            torzs.appendChild(tr10);
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = elem.points;
+            td.setAttribute("class", "tizedik_oszlop");
+        }
+    </script>
+    <br>
+    <br>
+    <div class="w3-container">
+        <button id="gomb" class="w3-button w3-black w3-round-xxlarge" onclick="gomb1()">Más Kinézet</button>
+    </div>
+</body>
+</html>
